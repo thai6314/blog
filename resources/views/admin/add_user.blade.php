@@ -1,8 +1,9 @@
-@include('layouts/header')
+@extends('index')
+@section('main')
 <div class="container-lg">
     <div class="row">
         <div class="col-3"></div>
-        <form class="col-6 border rounded" method="post" action="register">
+        <form class="col-6 border rounded" method="post" action="add_user">
             <h2 class="text-primary">Add User</h2>
             <div class="form-outline">
                 <label class="form-label">Email</label>
@@ -78,9 +79,7 @@
             <button type="submit" class="btn btn-primary btn-block mb-4">Add</button>
             <br>
             <a href="#!">List user</a>
+        </form>
     </div>
-
-    </form>
 </div>
-</div>
-@include('layouts/footer')
+@endsection

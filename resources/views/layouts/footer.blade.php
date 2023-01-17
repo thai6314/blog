@@ -72,24 +72,3 @@
         <a class="text-reset fw-bold" href="#">Dao Van Thai</a>
     </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-  
-  document.getElementById('customFile').addEventListener('change', (e) => {
-    console.log(e.target.files[0]);
-    avatar.src = URL.createObjectURL(event.target.files[0]);
-  })
-
-  function preview() {
-      console.log(event.target.files[0]);
-      avatar.src = URL.createObjectURL(event.target.files[0]);
-  }
-
-  function clearImage() {
-      document.getElementById('customFile').value = null;
-      avatar.src = "";
-  }
-</script>
-</body>
-
-</html>

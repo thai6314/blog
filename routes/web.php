@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\LoginController;
+use \App\Http\Controllers\Auth\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +13,12 @@ use \App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('login', [UserController::class, 'showLoginForm'])->name('login.form');
+Route::post('login', [UserController::class, 'login'])->name('login');
+Route::get('profile', [UserController::class, 'showProfile'])->name('profile');
+Route::get('edit', [UserController::class, 'showEditForm'])->name('edit.form');
+Route::post('edit', [UserController::class, 'editProfile'])->name('edit.profile');
 
-Route::get('/login',function(){
-    return view('admin.add_user');
-});
-require __DIR__.'/auth.php';
+Route::get('register', [UserController::class, 'showRegisterForm'])->name('register.form');
+Route::post('register', [UserController::class, 'register'])->name('register');
+

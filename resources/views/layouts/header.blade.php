@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Blog</title>
-</head>
-<body>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <!-- Container wrapper -->
@@ -45,24 +35,26 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Post</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" href="#">User</a>
+        </li>
       </ul>
     </div>
 
     <div class="d-flex align-items-center">
       <!-- Avatar -->
-      <div class="dropdown">
+      <div>
           <img
-            src="https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg"
+            src="{{ Auth::user()->avatar }}"
             class="rounded-circle"
-            height="25"
-            alt="Black and White Portrait of a Man"
+            height="40"
             loading="lazy"
           />
         </a>
       </div>
     </div>
+    <div class="d-flex ">
+      <span style="font-size: 24spanx,">{{ Auth::user()->first_name . '.' . Auth::user()->last_name }}</p>
   </div>
 </nav>
-<!-- Navbar -->
-    
+<!-- Navbar https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg -->
