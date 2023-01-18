@@ -4,6 +4,7 @@
     <div class="row">
         <div class="col-3"></div>
         <form class="col-6 border rounded" method="post" action="{{ route('edit.profile') }}">
+            @csrf
             <h2 class="text-primary">Edit profile</h2>
             <div class="form-outline">
                 <label class="form-label">Email</label>
@@ -70,14 +71,14 @@
                     <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"name="address">{{ Auth::user()->address }}</textarea>
                 </div>
             </div>
-            
+
             <div class="form-outline">
                 <label class="form-label" for="customFile">Avatar</label>
                 <br>
                 <img src="{{ Auth::user()->avatar }}" alt="" id="avatar" class="img-fluid">
                 <br><br>
                 <input type="file" class="form-control" id="customFile" name="avatar"/>
-                
+
             </div><br>
             <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
             <br>

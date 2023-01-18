@@ -4,6 +4,7 @@
     <div class="row">
         <div class="col-4"></div>
         <form class="col-4 border rounded" method="post" action="register">
+            @csrf
             <h2 class="text-primary">Register</h2>
             <div class="form-outline">
                 <label class="form-label">Email</label>

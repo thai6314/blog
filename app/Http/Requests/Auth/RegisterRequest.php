@@ -16,7 +16,6 @@ class RegisterRequest extends FormRequest
             'last_name'=> 'required|max:50',
             'gender'=>'required',
             'address'=>'required'
-
         ];
     }
 

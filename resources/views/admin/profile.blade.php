@@ -37,7 +37,10 @@
                     </div>
                     <div class="col-6">
                         @if(Auth::user()->gender == '1')
-                            <span>Nam </span>
+                            <span>Male </span>
+                        @elseif(Auth::user()->gender == '2')
+                            <span>Female </span>
+                        @else <span>Other </span>
                         @endif
                     </div>
                 </div>
@@ -69,7 +72,7 @@
                     </div>
                     <div class="col-6">
                         @if( isset(Auth::user()->avatar ))
-                            <img src="{{ Auth::user()->avatar }}" >
+                            <img class="img-fluid" src="{{ Auth::user()->avatar }}" >
                             @else <span> </span>
                         @endif
                     </div>
