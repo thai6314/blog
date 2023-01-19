@@ -3,7 +3,7 @@
 <div class="container-lg" style="margin-top: 30px">
     <div class="row">
         <div class="col-4"></div>
-        <form class="col-4 border rounded" method="post" action="{{ route('login') }}">
+        <form class="col-4 border rounded" method="post" action="{{ route('login.admin') }}">
             @csrf
             <h2 class="text-primary">Login</h2>
             @if (Session::has('message'))
@@ -27,7 +27,7 @@
             <br>
             <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
             <br>
-            <a href="{{ route('register.form') }}">Register</a>
+            <a href="{{ route('register.admin.form') }}">Register</a>
         </form>
     </div>
 </div>

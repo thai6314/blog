@@ -3,7 +3,7 @@
 <div class="container-lg" style="margin-top: 30px">
     <div class="row">
         <div class="col-4"></div>
-        <form class="col-4 border rounded" method="post" action="register">
+        <form class="col-4 border rounded" method="post" action="{{ route('register.user') }}">
             @csrf
             <h2 class="text-primary">Register</h2>
             <div class="form-outline">
@@ -73,7 +73,7 @@
             <br>
             <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
             <br>
-            <a href="#!">Login</a>
+            <a href="{{ 'login.user.form' }}">Login</a>
         </form>
     </div>
 </div>

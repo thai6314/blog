@@ -21,29 +21,38 @@ class UserController extends Controller
         'manager'=>'3'
     ];
     public function showLoginForm(){
-        return view('auth.login');
+        return view('auth.admin.login');
     }
     public function login(LoginRequest $request){
         $validated = $request->validated();
-        $user = ['email'=>$validated['email'], 'password'=>$validated['password'], 'role'=>self::ROLE['admin']];
-        if(Auth::attempt($user)){
-            return redirect()->route('profile')->with(['message'=>'Login success']);
-        }else{
-            return redirect()->route('login.form')->with(['message'=>'User can not login']);
+        $admin = ['email'=>$validated['email'], 'password'=>$validated['password'], 'role'=>self::ROLE['admin']];
+
+        if (Auth::attempt($admin)) {
+            return redirect()->route('profile')->with(['message'=>'login success']);
         }
 
     }
     public function logout(Request $request){
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
+        $currentUser = Auth::user();
+
+        if($currentUser->role == '1') {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect()->route('login.admin.form');
+        }
+        else {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect()->route('login.user.form');
+        }
     }
 
     public function showRegisterForm(){
-        return view('auth.register');
+        return view('auth.admin.register');
     }
-    public function register(RegisterRequest $request){
+    public function registerAdmin(RegisterRequest $request){
         $validated = $request->validated();
         $userNew = [
             'email'=>$validated['email'],
@@ -56,6 +65,35 @@ class UserController extends Controller
         ];
         User::create($userNew);
         return redirect()->route('login.form')->with(['message'=>'register success']);
+    }
+    public function showLoginUserForm(){
+        return view('auth.user.login');
+    }
+    public function loginUser(LoginRequest $request){
+        $validated = $request->validated();
+        $user = ['email'=>$validated['email'], 'password'=>$validated['password'], 'role'=>self::ROLE['user']];
+
+        if (Auth::attempt($user)) {
+            return redirect()->route('home.user')->with(['message'=>'login success']);
+        }
+    }
+
+    public function showRegisterUserForm(){
+        return view('auth.user.register');
+    }
+    public function registerUser(RegisterRequest $request){
+        $validated = $request->validated();
+        $userNew = [
+            'email'=>$validated['email'],
+            'password'=>Hash::make($validated['password']),
+            'first_name'=>$validated['first_name'],
+            'last_name'=>$validated['last_name'],
+            'gender'=>$validated['gender'],
+            'address'=>$validated['address'],
+            'role'=>self::ROLE['user'],
+        ];
+        User::create($userNew);
+        return redirect()->route('login.user.form')->with(['message'=>'register success']);
     }
     public function showProfile(){
         return view('admin.profile');
