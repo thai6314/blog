@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function showHomeUser(){
         $categories = Category::all();
         $posts = Post::where('category_id',$categories[0]->category_id)->get();
-        return view('user.categories', [
+        return view('user.home', [
             'categories'=>$categories,
             'posts'=>$posts
         ]);
@@ -18,7 +18,7 @@ class HomeController extends Controller
     public function showListPostsByCategoryID($category_id){
         $categories = Category::all();
         $posts = Post::where('category_id', $category_id)->get();
-        return view('user.categories', [
+        return view('user.home', [
             'categories'=>$categories,
             'posts'=>$posts
         ]);

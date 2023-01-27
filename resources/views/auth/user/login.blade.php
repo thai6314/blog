@@ -7,7 +7,7 @@
             @csrf
             <h2 class="text-primary">Login</h2>
             @if (Session::has('message'))
-                <div class="alert alert-success">
+                <div class="alert alert-danger">
                         <h4>{{ Session::get('message') }}</h4>
                 </div>
             @endif

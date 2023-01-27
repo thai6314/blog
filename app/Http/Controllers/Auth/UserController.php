@@ -28,14 +28,16 @@ class UserController extends Controller
         $admin = ['email'=>$validated['email'], 'password'=>$validated['password'], 'role'=>self::ROLE['admin']];
 
         if (Auth::attempt($admin)) {
-            return redirect()->route('profile')->with(['message'=>'login success']);
+            return redirect()->route('profile')->with(['message'=>'Login success']);
         }
-
+        else {
+            return redirect()->route('login.admin.form')->with(['message' => 'Email or password are not correct']);
+        }
     }
     public function logout(Request $request){
         $currentUser = Auth::user();
 
-        if($currentUser->role == '1') {
+        if($currentUser->role == self::ROLE('admin')) {
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
@@ -74,7 +76,10 @@ class UserController extends Controller
         $user = ['email'=>$validated['email'], 'password'=>$validated['password'], 'role'=>self::ROLE['user']];
 
         if (Auth::attempt($user)) {
-            return redirect()->route('home.user')->with(['message'=>'login success']);
+            return redirect()->route('home.user')->with(['message'=>'Login success']);
+        }
+        else{
+            return redirect()->route('login.user.form')->with(['message' => 'Email or password are not correct']);
         }
     }
 
@@ -159,7 +164,6 @@ class UserController extends Controller
         User::where('user_id', $request['user_id'])->update($userUpdate);
         return redirect()->route('list.user')->with(['message'=>'Update user success']);
     }
-
     public function deleteUser($user_id){
        $user = User::find($user_id);
         if($user == null) {

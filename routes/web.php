@@ -5,6 +5,7 @@ use \App\Http\Controllers\Auth\UserController;
 use \App\Http\Controllers\Blog\CategoryController;
 use \App\Http\Controllers\Blog\PostController;
 use \App\Http\Controllers\Blog\HomeController;
+use \App\Http\Controllers\Blog\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +16,26 @@ use \App\Http\Controllers\Blog\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
 Route::get('/',function (){
     return view('auth.user.login');
 });
-Route::prefix('user')->group(function(){
+Route::get('logout',[UserController::class, 'logout'])->name('logout');
+
+Route::prefix('user')->middleware('auth')->group(function(){
     Route::get('home', [HomeController::class, 'showHomeUser'])->name('home.user');
     Route::get('posts/{category_id}', [HomeController::class, 'showListPostsByCategoryID'])->name('list.posts');
     Route::post('posts/{category_id}',);
+
+    Route::prefix('comment')->group(function (){
+
+    });
+    Route::prefix('post')->group(function (){
+        Route::get('detail/{id}', [PostController::class, 'getDetail'])->name('detail.post');
+        Route::get('list', [PostController::class, 'showListPost'])->name('list.post');
+    });
 
 });
 Route::prefix('auth')->group(function(){
@@ -34,13 +48,13 @@ Route::prefix('auth')->group(function(){
     Route::post('login', [UserController::class, 'login'])->name('login.admin');
     Route::get('register', [UserController::class, 'showRegisterForm'])->name('register.admin.form');
     Route::post('register', [UserController::class, 'registerAdmin'])->name('register.admin');
+
 });
 Route::prefix('admin')->middleware('auth')->group(function(){
-    Route::get('logout',[UserController::class, 'logout'])->name('logout');
     Route::get('profile', [UserController::class, 'showProfile'])->name('profile');
     Route::get('edit', [UserController::class, 'showEditForm'])->name('edit.form');
     Route::post('edit', [UserController::class, 'editProfile'])->name('edit.profile');
-//admim -> user
+
     Route::get('add_user', [UserController::class, 'showAddUserForm'])->name('add.user.form');
     Route::post('add_user', [UserController::class, 'addUser'])->name('add.user');
     Route::get('list_user', [UserController::class, 'showListUser'])->name('list.user');

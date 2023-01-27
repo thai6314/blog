@@ -58,6 +58,13 @@ class PostController extends Controller
             $post -> delete();
             return redirect()->route('list.post')->with(['message'=>'Deleted']);
         }
-
+    }
+    public function getDetail($post_id){
+        $categories = Category::all();
+        $post = Post::where('post_id', $post_id)->first();
+        return view('post.detail', [
+            'post'=>$post,
+            'categories'=>$categories
+        ]);
     }
 }
