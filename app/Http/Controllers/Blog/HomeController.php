@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function showHomeUser(){
         $categories = Category::all();
-        $posts = Post::where('category_id',$categories[0]->category_id)->get();
+        $posts = Post::where('category_id',$categories[3]->category_id)->get();
         return view('user.home', [
             'categories'=>$categories,
             'posts'=>$posts

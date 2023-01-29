@@ -18,5 +18,5 @@ use \App\Http\Controllers\Blog\CommentController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('list_comment', [CommentController::class, 'getListComment'])->name('list.comment');
+Route::get('list_comment/{id}', [CommentController::class, 'getListComment'])->name('list.comment');
 Route::post('comment/add', [CommentController::class, 'addComment'])->name('add.comment');

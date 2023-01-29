@@ -11,27 +11,31 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
     public function addComment(Request $request){
-        Comment::create($request->all());
-        return response()->json([
-            'status' => 200,
-        ]);
+        dd($request);
+//        Comment::create($request->all());
+//        return response()->json([
+//            'status' => 200,
+//        ]);
 
     }
-    public function getListComment(){
-        $post_id = 1;
+    public function getListComment($post_id){
         $comments = Comment::where('post_id', $post_id)->orderBy('created_at', 'desc')->get();
-        $users = [];
+        $data = array();
+//        array_push($data, ['post_id'=>$post_id]);
         foreach ($comments as $comment){
-            $user = User::where('user_id', $comments->user_id)->first();
-            array_push($users, $user);
+            $user = User::where('user_id', $comment->user_id)->first();
+            $comment_info = [
+                'comment_is'=>$comment->comment_id,
+                'parent_id'=>$comment->parent_id,
+                'comment'=>$comment->comment,
+                'post_id'=>$post_id,
+                'user'=> $user
+            ];
+            array_push($data, $comment_info);
         }
-
         return response()->json([
             'status' => 200,
-            'data'=>[
-                '$comments'=>$comments,
-                'users'=> $users
-            ]
+            'data'=> $data
         ]);
     }
 }

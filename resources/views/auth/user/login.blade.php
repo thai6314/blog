@@ -6,7 +6,7 @@
         <form class="col-4 border rounded" method="post" action="{{ route('login.user') }}">
             @csrf
             <h2 class="text-primary">Login</h2>
-            @if (Session::has('message'))
+            @if (Session::has('message') )
                 <div class="alert alert-danger">
                         <h4>{{ Session::get('message') }}</h4>
                 </div>

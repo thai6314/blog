@@ -7,37 +7,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="{{ asset('js/comment/comment.js')}}"></script>
+
+    <script defer type="text/javascript" src="{{ asset('js/comment/comment.js') }}"></script>
+
     <title>Blog</title>
 </head>
 <body>
 @include('category.categories')
-<div class="container" style="margin-top: 30px">
-    <div class="border rounded">
-        <div class="row" id="post">
+<div class="container border rounded p-4" style="margin-top: 30px">
+        <div class="d-flex border rounded" id="post">
             <div class="col-4">
                 <img src="{{ $post->photo }}" class="img-fluid"/>
             </div>
-            <div class="col-4">
-                <a href="{{ route('detail.post', ['id'=>$post->post_id]) }}"><h5
-                        class="card-title">{{ $post->title }}</h5></a>
-                <p class="card-text">{{ $post->content }}</p>
+            <div class="col-8 ms-2">
+                <a href="{{ route('detail.post', ['id'=>$post->post_id]) }}">
+                    <h5 class="card-title">{{ $post->title }}</h5></a>
+                <p class="card-text pe-2" style="max-width: 800px">{{ $post->content }}</p>
             </div>
         </div>
+        <div id="list-comment" ></div>
         <br>
 
-        <div class="row">
+        <div >
             <div class="col">
-                <input type="text" id="form2Example1" class="form-control" name="comment"
+                <input type="text" id="txtComment" class="form-control " style="height: 70px" name="comment"
                        placeholder="Enter comment..."/>
                 @if ($errors->has('comment'))
                     <p class="text-danger">{{ $errors->first('comment') }}</p>
                 @endif
             </div>
-            <button id="btnComment" class="btn btn-secondary">Comment</button>
+            <button id="btnComment" class="btn btn-secondary w-100 mt-2">Comment</button>
         </div>
-    </div>
-    <br><br>
 </div>
 </body>
 </html>
