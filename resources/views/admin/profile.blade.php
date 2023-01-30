@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <br>
-                <a href="{{ route('edit.form') }}" class="btn btn-dark" role="button" aria-pressed="true">Edit</a>
+                <a href="{{ route('edit.form.admin') }}" class="btn btn-dark" role="button" aria-pressed="true">Edit</a>
                 <br>
             </div>
         </div>

@@ -12,10 +12,10 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                <a class="navbar-brand mt-2 mt-lg-0" href="{{ route('home.user') }}">
                     <img
                         src="https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg"
-                        height="15"
+                        height="35"
                         alt="MDB Logo"
                         loading="lazy"
                     />
@@ -37,6 +37,7 @@
             <div class="d-flex align-items-center">
                 <!-- Avatar -->
                 <div>
+                    <a href="{{ route('profile.user') }}">
                     <img
                         @if(Auth::user() !== null)
                             src="{{ Auth::user()->avatar }}"

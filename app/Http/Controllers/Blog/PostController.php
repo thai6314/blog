@@ -13,6 +13,7 @@ class PostController extends Controller
     public function showListPost(){
         $posts = Post::all();
         return view('post.list_post',['posts'=>$posts]);
+
     }
     public function showAddPostForm(){
         $categories = Category::all();

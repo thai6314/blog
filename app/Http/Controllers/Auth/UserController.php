@@ -12,6 +12,7 @@ use App\Http\Requests\Admin\AddUserRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -26,7 +27,6 @@ class UserController extends Controller
     public function login(LoginRequest $request){
         $validated = $request->validated();
         $admin = ['email'=>$validated['email'], 'password'=>$validated['password'], 'role'=>self::ROLE['admin']];
-
         if (Auth::attempt($admin)) {
             return redirect()->route('profile')->with(['message'=>'Login success']);
         }
@@ -37,7 +37,7 @@ class UserController extends Controller
     public function logout(Request $request){
         $currentUser = Auth::user();
 
-        if($currentUser->role == self::ROLE('admin')) {
+        if($currentUser->role == self::ROLE['admin']) {
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
@@ -101,10 +101,18 @@ class UserController extends Controller
         return redirect()->route('login.user.form')->with(['message'=>'register success']);
     }
     public function showProfile(){
-        return view('admin.profile');
+        if(Auth::user()->role == self::ROLE['admin']) {
+            return view('admin.profile');
+        } else {
+            return view('user.profile');
+        }
     }
     public function showEditForm(){
-        return view('admin.edit');
+        if(Auth::user()->role == self::ROLE['admin']) {
+            return view('admin.edit');
+        } else {
+            return view('user.edit_profile');
+        }
     }
     public function editProfile(ProfileRequest $request){
         $validated = $request->validated();
@@ -118,7 +126,12 @@ class UserController extends Controller
             'avatar'=>$request['avatar']
         ];
         User::where('user_id',Auth::user()->user_id)->update($userUpdate);
-        return redirect()->route('profile');
+        if(Auth::user()->role == self::ROLE['admin']){
+            return redirect()->route('profile.admin');
+        } else {
+            return redirect()->route('profile.user');
+        }
+
     }
 
     public function showAddUserForm(){

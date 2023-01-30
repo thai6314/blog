@@ -23,7 +23,7 @@
             <a class="navbar-brand mt-2 mt-lg-0" href="#">
                 <img
                     src="https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg"
-                    height="15"
+                    height="35"
                     alt="MDB Logo"
                     loading="lazy"
                 />
@@ -41,7 +41,7 @@
                     <a class="nav-link" href="{{ route('list.user') }}">User</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                    <a class="nav-link" href="{{ route('profile.admin') }}">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">Logout</a>
@@ -69,5 +69,6 @@
             @endif
 
         </div>
+    </div>
 </nav>
 <!-- Navbar https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg -->

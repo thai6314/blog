@@ -28,10 +28,9 @@ Route::prefix('user')->middleware('auth')->group(function(){
     Route::get('home', [HomeController::class, 'showHomeUser'])->name('home.user');
     Route::get('posts/{category_id}', [HomeController::class, 'showListPostsByCategoryID'])->name('list.posts');
     Route::post('posts/{category_id}',);
-
-    Route::prefix('comment')->group(function (){
-
-    });
+    Route::get('profile', [UserController::class, 'showProfile'])->name('profile.user');
+    Route::Get('profile/edit', [UserController::class , 'showEditForm'])->name('edit.form.user');
+    Route::post('profile/edit', [UserController::class, 'editProfile'])->name('profile.edit.user');
     Route::prefix('post')->group(function (){
         Route::get('detail/{id}', [PostController::class, 'getDetail'])->name('detail.post');
         Route::get('list', [PostController::class, 'showListPost'])->name('list.post');
@@ -51,8 +50,8 @@ Route::prefix('auth')->group(function(){
 
 });
 Route::prefix('admin')->middleware('auth')->group(function(){
-    Route::get('profile', [UserController::class, 'showProfile'])->name('profile');
-    Route::get('edit', [UserController::class, 'showEditForm'])->name('edit.form');
+    Route::get('profile', [UserController::class, 'showProfile'])->name('profile.admin');
+    Route::get('edit', [UserController::class, 'showEditForm'])->name('edit.form.admin');
     Route::post('edit', [UserController::class, 'editProfile'])->name('edit.profile');
 
     Route::get('add_user', [UserController::class, 'showAddUserForm'])->name('add.user.form');

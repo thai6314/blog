@@ -30,14 +30,16 @@
 
         <div >
             <div class="col">
-                <input type="text" id="txtComment" class="form-control " style="height: 70px" name="comment"
+                <input type="text" id="txtComment" class="form-control " style="height: 70px" name="comment" required
                        placeholder="Enter comment..."/>
                 @if ($errors->has('comment'))
                     <p class="text-danger">{{ $errors->first('comment') }}</p>
                 @endif
             </div>
-            <button id="btnComment" class="btn btn-secondary w-100 mt-2">Comment</button>
+            <button id="btnComment" class="btn btn-primary w-100 mt-2">Comment</button>
         </div>
+        <input type="hidden" id="post_id" value="{{ $post->post_id }}">
+        <input type="hidden" id="user_id" value="{{ Auth::user()->user_id}}">
 </div>
 </body>
 </html>
