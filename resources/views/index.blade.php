@@ -17,9 +17,8 @@
 </script>
 <script type="text/javascript">
     document.getElementById('customFile').addEventListener('change', (e) => {
-        console.log(e.target.files[0]);
         avatar.src = URL.createObjectURL(e.target.files[0]);
-    })
+    });
 
     function preview() {
         console.log(event.target.files[0]);
