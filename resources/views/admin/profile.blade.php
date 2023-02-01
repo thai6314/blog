@@ -12,7 +12,7 @@
 <body>
 <div class="menu">
     <ul class="menu-items">
-        <li class="menu-item"><a href="{{ route('profile.admin') }}">Profile</a></li>
+        <li class="menu-item" style="background-color: darksalmon"><a href="{{ route('profile.admin') }}">Profile</a></li>
         <li class="menu-item"><a href="{{ route('list.category') }}">Categories</a></li>
         <li class="menu-item"><a href="{{ route('list.post') }}">Posts</a></li>
         <li class="menu-item"><a href="#">Comment</a></li>
@@ -44,15 +44,16 @@
                 <div class="col-2"></div>
                 <div class="col-6 border rounded">
                     <h2>Profile</h2>
-                    <div class="row"style="margin-top: 30px; width: 100%">
-                        <div ><label class="form-label">Email</label></div>
+                    <div class="row mt-2"style="margin-top: 30px; width: 100%">
+                        <div class="col-3 border-right" >
+                            <label class="form-label">Email</label>
+                        </div>
                         <div class="col-6">
                             <span>{{ Auth::user()->email }} </span>
                         </div>
                     </div>
-                    <br>
-                    <div class="row ">
-                        <div class="col-2 border-right">
+                    <div class="row mt-2">
+                        <div class="col-3 border-right">
                             <label class="form-label">First name</label>
                         </div>
                         <div class="col-6">
@@ -60,17 +61,16 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-2 border-right">
+                    <div class="row mt-2">
+                        <div class="col-3 border-right">
                             <label class="form-label">Last name</label>
                         </div>
                         <div class="col-6">
                             <span>{{ Auth::user()->last_name }} </span>
                         </div>
                     </div>
-                    <br>
-                    <div class="row ">
-                        <div class="col-2 border-right">
+                    <div class="row mt-2">
+                        <div class="col-3 border-right">
                             <label class="form-label">Gender</label>
                         </div>
                         <div class="col-6">
@@ -82,9 +82,8 @@
                             @endif
                         </div>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-2 border-right">
+                    <div class="row mt-2">
+                        <div class="col-3 border-right">
                             <label class="form-label">Birth day</label>
                         </div>
                         <div class="col-6">
@@ -94,18 +93,16 @@
                             @endif
                         </div>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-2 border-right">
+                    <div class="row mt-2">
+                        <div class="col-3 border-right">
                             <label class="form-label">Address</label>
                         </div>
                         <div class="col-6">
                             <span>{{ Auth::user()->address }} </span>
                         </div>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-2 border-right">
+                    <div class="row mt-2">
+                        <div class="col-3 border-right">
                             <label class="form-label">Avatar</label>
                         </div>
                         <div class="col-6">
@@ -119,6 +116,7 @@
                     </div>
                     <br>
                     <a href="{{ route('edit.form.admin') }}" class="btn btn-dark" role="button" aria-pressed="true">Edit</a>
+                    <br>
                     <br>
                 </div>
             </div>

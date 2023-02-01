@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link  href="{{ asset('css/admin/profile.css') }}" rel="stylesheet">
+    <link  href="{{ asset('css/category/category.css') }}" rel="stylesheet">
     <title>Blog</title>
 </head>
 <body>
 <div class="menu">
     <ul class="menu-items">
         <li class="menu-item"><a href="{{ route('profile.admin') }}">Profile</a></li>
-        <li class="menu-item"><a href="{{ route('list.category') }}">Categories</a></li>
+        <li class="menu-item" style="background-color: darksalmon"><a href="{{ route('list.category') }}">Categories</a></li>
         <li class="menu-item"><a href="{{ route('list.post') }}">Posts</a></li>
         <li class="menu-item"><a href="#">Comment</a></li>
         <li class="menu-item"><a href="{{ route('logout') }}">Logout</a></li>
@@ -39,7 +39,7 @@
             </li>
         </ul>
     </div>
-    <div class="content" >
+    <div class="container-lg" style="margin: 30px 0 0 0" >
         <div class="row">
             <div class="col-3"></div>
             <form class="col-6 border rounded" method="post" action="{{ route('add.category') }}">

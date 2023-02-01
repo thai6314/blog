@@ -66,7 +66,7 @@ class UserController extends Controller
             'role'=>self::ROLE['admin'],
         ];
         User::create($userNew);
-        return redirect()->route('login.form')->with(['message'=>'register success']);
+        return redirect()->route('login.admin.form')->with(['message'=>'register success']);
     }
     public function showLoginUserForm(){
         return view('auth.user.login');

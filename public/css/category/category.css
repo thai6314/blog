@@ -1,9 +1,9 @@
 
-
 body {
     display: flex;
     justify-content: space-around;
     font-size: 20px;
+    width: 100vw;
     height: 100vh;
 }
 
@@ -12,7 +12,6 @@ body {
     width: 15%;
     height: 100%;
     background-color: rgb(29, 29, 29);
-
 }
 
 .menu-items {
@@ -29,7 +28,7 @@ body {
     background-color: darksalmon;
 }
 
-.menu-item-link {
+a {
     padding-left: 40px;
     list-style-type: none;
     text-decoration: none;
@@ -61,49 +60,11 @@ body {
 }
 
 .content {
-    margin-top: 30px;
-    height: 50%;
+    width: 70%;
+    margin: 30px auto auto 25%;
 }
 
 h2 {
-    margin-top: 30px;
     color: darksalmon;
-    margin-left: 10%;
 }
-.txt-content {
-    white-space: nowrap;
-    width: 400px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.search-box{
-    width: 80%;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    align-content: space-around;
-    margin-left: 10%;
-}
-.search-box_title{
-    margin-left: 30px;
-    flex: 4;
-}
-.search-box_author{
-    flex: 4;
-}
-.search-box_btn_search{
-    flex: 1;
-}
-.table{
-    width: 80%;
-    margin-left: 10%
-}
-.btn{
-    padding: 5px;
-    width: 60px;
-}
-input{
-    width: 80%;
-}
-
 

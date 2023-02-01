@@ -12,7 +12,7 @@
 <body>
 <div class="menu">
     <ul class="menu-items">
-        <li class="menu-item"><a href="{{ route('profile.admin') }}">Profile</a></li>
+        <li class="menu-item" style="background-color: darksalmon"><a href="{{ route('profile.admin') }}">Profile</a></li>
         <li class="menu-item"><a href="{{ route('list.category') }}">Categories</a></li>
         <li class="menu-item"><a href="{{ route('list.post') }}">Posts</a></li>
         <li class="menu-item"><a href="#">Comment</a></li>
@@ -39,91 +39,92 @@
             </li>
         </ul>
     </div>
-<div class="content">
-    <div class="row">
-        <div class="col-3"></div>
-        <form class="col-6 border rounded" method="post" action="{{ route('edit.profile') }}">
-            @csrf
-            <h2 style="color: darksalmon">Edit profile</h2>
-            <div class="form-outline">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}"/>
-                @if ($errors->has('email'))
-                <p class="text-danger">{{ $errors->first('email') }}</p>
-                @endif
-            </div>
+    <div class="content" style="margin: 30px 0px 0px 30px">
+        <div class="row">
+            <div class="col-3"></div>
+            <form class="col-6 border rounded" method="post" action="{{ route('edit.profile') }}">
+                @csrf
+                <h2 style="color: darksalmon">Edit profile</h2>
+                <div class="form-outline">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}"/>
+                    @if ($errors->has('email'))
+                    <p class="text-danger">{{ $errors->first('email') }}</p>
+                    @endif
+                </div>
 
-            <div class="form-outline">
-                <label class="form-label">First name</label>
-                <input type="text"  class="form-control" name="first_name" value="{{ Auth::user()->first_name }}"/>
-                @if ($errors->has('first_name'))
-                <p class="text-danger">{{ $errors->first('first_name') }}</p>
-                @endif
-            </div>
-            <div class="form-outline">
-                <label class="form-label">Last name</label>
-                <input type="text" class="form-control" name="last_name" value="{{ Auth::user()->last_name }}"/>
-                @if ($errors->has('last_name'))
-                <p class="text-danger">{{ $errors->first('last_name') }}</p>
-                @endif
-            </div>
-            <div class="form-outline">
-                <label class="form-label">Birth day</label>
-                <input type="date" class="form-control" name="birth_day" placeholder="dd-mm-yyyy"  min="1930-01-01" value="{{ Auth::user()->birth_day }}">
-                 @if ($errors->has('birth_day'))
-                <p class="text-danger">{{ $errors->first('birth_day') }}</p>
-                @endif
-            </div>
-            <div class="form-outline">
-                <label class="form-label">Gender</label>
-                <div class="form-check">
-                    @if (Auth::user()->gender == '1')
-                        <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault1" value ="1"checked>
-                        @else <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault1" >
+                <div class="form-outline">
+                    <label class="form-label">First name</label>
+                    <input type="text"  class="form-control" name="first_name" value="{{ Auth::user()->first_name }}"/>
+                    @if ($errors->has('first_name'))
+                    <p class="text-danger">{{ $errors->first('first_name') }}</p>
                     @endif
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Male
-                    </label>
                 </div>
-                <div class="form-check">
-                    @if (Auth::user()->gender == '2')
-                        <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault2" value="2" checked>
-                        @else <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault2" >
+                <div class="form-outline">
+                    <label class="form-label">Last name</label>
+                    <input type="text" class="form-control" name="last_name" value="{{ Auth::user()->last_name }}"/>
+                    @if ($errors->has('last_name'))
+                    <p class="text-danger">{{ $errors->first('last_name') }}</p>
                     @endif
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Female
-                    </label>
                 </div>
-                <div class="form-check">
-                    @if (Auth::user()->gender == '3')
-                        <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault3" value="3" checked>
-                        @else <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault3" >
+                <div class="form-outline">
+                    <label class="form-label">Birth day</label>
+                    <input type="date" class="form-control" name="birth_day" placeholder="dd-mm-yyyy"  min="1930-01-01" value="{{ Auth::user()->birth_day }}">
+                     @if ($errors->has('birth_day'))
+                    <p class="text-danger">{{ $errors->first('birth_day') }}</p>
                     @endif
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Other
-                    </label>
                 </div>
-            </div>
-            <div class="form-outline">
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea3">Address</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"name="address">{{ Auth::user()->address }}</textarea>
+                <div class="form-outline">
+                    <label class="form-label">Gender</label>
+                    <div class="form-check">
+                        @if (Auth::user()->gender == '1')
+                            <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault1" value ="1"checked>
+                            @else <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault1" >
+                        @endif
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        @if (Auth::user()->gender == '2')
+                            <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault2" value="2" checked>
+                            @else <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault2" >
+                        @endif
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Female
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        @if (Auth::user()->gender == '3')
+                            <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault3" value="3" checked>
+                            @else <input class="form-check-input" name="gender" type="radio" id="flexRadioDefault3" >
+                        @endif
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Other
+                        </label>
+                    </div>
                 </div>
-            </div>
+                <div class="form-outline">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea3">Address</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"name="address">{{ Auth::user()->address }}</textarea>
+                    </div>
+                </div>
 
-            <div class="form-outline">
-                <label class="form-label" for="customFile">Avatar</label>
+                <div class="form-outline">
+                    <label class="form-label" for="customFile">Avatar</label>
+                    <br>
+                    <img src="{{ Auth::user()->avatar }}" alt="" id="avatar" class="img-fluid"
+                        width="50%"
+                    >
+                    <br><br>
+                    <input type="file" class="form-control" id="customFile" name="avatar"/>
+
+                </div><br>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
                 <br>
-                <img src="{{ Auth::user()->avatar }}" alt="" id="avatar" class="img-fluid"
-                    width="50%"
-                >
-                <br><br>
-                <input type="file" class="form-control" id="customFile" name="avatar"/>
-
-            </div><br>
-            <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
-            <br>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

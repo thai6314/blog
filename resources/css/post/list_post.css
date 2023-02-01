@@ -66,6 +66,7 @@ body {
 }
 
 h2 {
+    margin-top: 30px;
     color: darksalmon;
     margin-left: 10%;
 }
@@ -75,3 +76,33 @@ h2 {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.search-box{
+    width: 80%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+    margin-left: 10%;
+}
+.search-box_title{
+    margin-left: 30px;
+    flex: 4;
+}
+.search-box_author{
+    flex: 4;
+}
+.search-box_btn_search{
+    flex: 1;
+}
+.table{
+    width: 80%;
+    margin-left: 10%
+}
+.btn{
+    padding: 5px;
+    width: 60px;
+}
+input{
+    width: 80%;
+}
+
