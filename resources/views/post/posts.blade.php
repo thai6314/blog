@@ -1,9 +1,9 @@
-<div class="container" style="margin-top: 30px">
-    @foreach($categories as $category)
-        @if($category->category_id == $posts[0]->category_id)
-            <h2>{{ $category->name }}</h2>
-        @endif
-    @endforeach
+<div class="container" >
+        @foreach($categories as $category)
+            @if($category_id == $category->category_id)
+                <h2>{{ $category->name }}</h2>
+            @endif
+        @endforeach
     @foreach($posts as $post)
         <div class="border rounded">
             <div class="row">

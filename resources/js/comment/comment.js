@@ -23,7 +23,7 @@ function renderCommentView(data) {
                 </div>
             </div>
             <div id="reply_comment_${ element.comment.comment_id }">
-                <button class="reply btn btn-primary mt-2" data-reply_id="${ element.comment.comment_id }">Reply</button>
+                <button class="reply btn btn-secondary mt-2" data-reply_id="${ element.comment.comment_id }">Reply</button>
             </div>`
     })
 
@@ -41,7 +41,6 @@ function renderCommentView(data) {
                         </div>
                     </div>`;
             });
-
             $('#comment_child_'+ element.comment.comment_id).append(commentChildHtml);
         }
     })
@@ -54,7 +53,7 @@ function renderCommentView(data) {
                     <input type="text" id="textReply_${comment_id}" class="form-control " style="height: 50px" name="comment" required
                         placeholder="Enter comment..."/>
                 </div>
-                <button id="btnReply_${comment_id}" class="btn btn-primary w-100 mt-2" >Reply</button>
+                <button id="btnReply_${comment_id}" class="btn btn-secondary w-100 mt-2" >Reply</button>
             </div>`;
         $('#reply_comment_' + comment_id).html(html);
 

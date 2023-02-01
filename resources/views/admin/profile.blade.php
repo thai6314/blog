@@ -1,10 +1,9 @@
 @extends('index')
 @section('main')
-    <div class="container-lg" style="margin-top: 30px">
+    <div class="container-lg" style="margin-top: 100px">
         <div class="row">
             <div class="col-2"></div>
-
-            <div class="col-8">
+            <div class="col-8 border rounded">
                 <h2 class="text-primary">Profile</h2>
                 <div class="row border rounded"style="margin-top: 30px">
                     <div class="col-2 "><label class="form-label">Email</label></div>

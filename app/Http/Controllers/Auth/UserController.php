@@ -28,7 +28,7 @@ class UserController extends Controller
         $validated = $request->validated();
         $admin = ['email'=>$validated['email'], 'password'=>$validated['password'], 'role'=>self::ROLE['admin']];
         if (Auth::attempt($admin)) {
-            return redirect()->route('profile')->with(['message'=>'Login success']);
+            return redirect()->route('profile.admin')->with(['message'=>'Login success']);
         }
         else {
             return redirect()->route('login.admin.form')->with(['message' => 'Email or password are not correct']);

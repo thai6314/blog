@@ -1,7 +1,8 @@
 @extends('index')
 @section('main')
-    <div class="container" style="margin-top: 30px">
+    <div class="container" style="margin-top: 5%">
         <table class="table">
+            <h2>List User</h2>
             <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>

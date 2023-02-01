@@ -1,6 +1,6 @@
 @extends('index')
 @section('main')
-    <div class="container-lg" style="margin-top: 30px">
+    <div class="container-lg" style="margin-top: 5%">
         <div class="row">
             <div class="col-3"></div>
             <form class="col-6 border rounded" method="post" action="{{ route('update.post') }}">

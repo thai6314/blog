@@ -1,0 +1,6 @@
+.txt-content {
+    white-space: nowrap;
+    width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

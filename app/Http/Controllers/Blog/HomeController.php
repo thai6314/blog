@@ -4,15 +4,19 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class HomeController extends Controller
 {
     public function showHomeUser(){
+
         $categories = Category::all();
-        $posts = Post::where('category_id',$categories[3]->category_id)->get();
+        $posts = Post::where('category_id',$categories[0]->category_id)->get();
         return view('user.home', [
             'categories'=>$categories,
-            'posts'=>$posts
+            'posts'=>$posts,
+            'category_id'=>$categories[0]->category_id
         ]);
     }
     public function showListPostsByCategoryID($category_id){
@@ -20,7 +24,8 @@ class HomeController extends Controller
         $posts = Post::where('category_id', $category_id)->get();
         return view('user.home', [
             'categories'=>$categories,
-            'posts'=>$posts
+            'posts'=>$posts,
+            'category_id'=>$category_id,
         ]);
     }
 }

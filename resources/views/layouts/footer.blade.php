@@ -1,6 +1,5 @@
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-white text-muted">
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+<footer class="text-center d-flex flex-column fixed-bottom" >
+    <section class=" border-bottom" >
         <div>
             <a href="" class="me-4 link-secondary">
                 <i class="fab fa-facebook-f"></i>
