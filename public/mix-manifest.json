@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/comment/comment.js": "/js/comment/comment.js",
+    "/css/admin/profile.css": "/css/admin/profile.css",
     "/css/post/list_post.css": "/css/post/list_post.css",
     "/css/app.css": "/css/app.css"
 }

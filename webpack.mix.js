@@ -13,5 +13,6 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [])
-    .css('resources/css/post/list_post.css', 'public/css/post/list_post.css');
+    .css('resources/css/post/list_post.css', 'public/css/post/list_post.css')
+    .css('resources/css/admin/profile.css', 'public/css/admin/profile.css');
 mix.js('resources/js/comment/comment.js', 'public/js/comment');

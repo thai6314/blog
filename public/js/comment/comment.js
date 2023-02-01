@@ -50,6 +50,7 @@ function getListComment() {
     type: 'GET',
     url: 'http://localhost:8000/api/comment/list_comment/' + post_id,
     dataType: 'json',
+    withCredentials: true,
     success: function success(response) {
       renderCommentView(response.data);
     },

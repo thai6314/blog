@@ -1,5 +1,4 @@
 
-
 body {
     display: flex;
     justify-content: space-around;
@@ -9,7 +8,7 @@ body {
 
 .menu {
     padding-top: 80px;
-    width: 15%;
+    width: 20%;
     height: 100%;
     background-color: rgb(29, 29, 29);
 
@@ -29,7 +28,7 @@ body {
     background-color: darksalmon;
 }
 
-.menu-item-link {
+a {
     padding-left: 40px;
     list-style-type: none;
     text-decoration: none;
@@ -40,14 +39,14 @@ body {
 .nav-content {
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 80%;
 }
 
 .nav {
     height: 80px;
     width: 100%;
     background-color: darksalmon;
-;
+    ;
     color: white;
     display: flex;
     flex-direction: row;
@@ -67,11 +66,4 @@ body {
 
 h2 {
     color: darksalmon;
-    margin-left: 10%;
-}
-.txt-content {
-    white-space: nowrap;
-    width: 400px;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }

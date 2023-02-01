@@ -13,7 +13,7 @@
     <div class="row" style="margin-top:  5%">
         <div class="row">
             <div class="col-4"></div>
-            <form class="col-4 border rounded" method="post" action="{{ 'register.admin' }}">
+            <form class="col-4 border rounded" method="post" action="{{ route('register.admin') }}">
                 @csrf
                 <h2 class="text-primary">Register</h2>
                 <div class="form-outline">
@@ -23,7 +23,7 @@
                         <p class="text-danger">{{ $errors->first('email') }}</p>
                     @endif
                 </div>
-    
+
                 <div class="form-outline">
                     <label class="form-label">Password</label>
                     <input type="password" id="form2Example2" class="form-control" name="password" />

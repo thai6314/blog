@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,21 @@ class PostController extends Controller
 {
     public function showListPost(){
         $posts = Post::all();
-        return view('post.list_post',['posts'=>$posts]);
+        $postsInfo = array();
+        foreach ($posts as $post){
+            $user = User::where('user_id', $post->user_id)->first();
+            $category = Category::where('category_id', $post->category_id)->first();
+            array_push($postsInfo, [
+                'post_id'=>$post->post_id,
+                'title'=>$post->title,
+                'photo'=>$post->photo,
+                'content'=>$post->content,
+                'post_time'=>$post->created_at,
+                'user'=>$user,
+                'category'=>$category,
+            ]);
+        }
+        return view('post.list_post',['posts'=>array_values($postsInfo)]);
 
     }
     public function showAddPostForm(){
