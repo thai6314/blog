@@ -10,12 +10,12 @@
     <title>Blog</title>
 </head>
 <body>
-<div class="menu">
+<div class="menu fixed">
     <ul class="menu-items">
         <li class="menu-item" style="background-color: darksalmon"><a href="{{ route('profile.admin') }}">Profile</a></li>
         <li class="menu-item"><a href="{{ route('list.category') }}">Categories</a></li>
         <li class="menu-item"><a href="{{ route('list.post') }}">Posts</a></li>
-        <li class="menu-item"><a href="#">Comment</a></li>
+        <li class="menu-item"><a href="{{ route('list.comment.admin') }}">Comment</a></li>
         <li class="menu-item"><a href="{{ route('logout') }}">Logout</a></li>
     </ul>
 </div>

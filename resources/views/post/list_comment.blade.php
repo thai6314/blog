@@ -7,15 +7,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link  href="{{ asset('css/post/list_post.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/comment/active_comment.js') }}"></script>
     <title>Blog</title>
 </head>
 <body>
-<div class="menu">
+<div class="menu fixed">
     <ul class="menu-items">
         <li class="menu-item"><a class="menu-item-link" href="{{ route('profile.admin') }}">Profile</a></li>
         <li class="menu-item"><a class="menu-item-link" href="{{ route('list.category') }}">Categories</a></li>
-        <li class="menu-item" style="background-color: darksalmon"><a class="menu-item-link" href="{{ route('list.post') }}">Posts</a></li>
-        <li class="menu-item"><a class="menu-item-link" href="{{ route('list.comment.admin') }}">Comment</a></li>
+        <li class="menu-item"><a class="menu-item-link" href="{{ route('list.post') }}">Posts</a></li>
+        <li class="menu-item"  style="background-color: darksalmon"><a class="menu-item-link" href="{{ route('list.comment.admin') }}">Comment</a></li>
         <li class="menu-item"><a class="menu-item-link" href="{{ route('logout') }}">Logout</a></li>
     </ul>
 </div>
@@ -59,26 +61,33 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Category</th>
-                <th scope="col">Author</th>
-                <th scope="col">Content</th>
-                <th scope="col">Post time</th>
-                <th scope="col"><a href="{{ route('add.post') }}">New</a></th>
+                <th scope="col">User comment</th>
+                <th scope="col">Post title</th>
+                <th scope="col">Content comment</th>
+                <th scope="col">Comment time</th>
+                <th scope="col">Status</th>
+                <th scope="col">Detail</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($posts as $post)
+            @foreach($comments as $comment)
                 <tr>
-                    <th scope="row">{{ $post['post_id'] }}</th>
-                    <td>{{ $post['title'] }}</td>
-                    <td>{{ $post['category']['name'] }}</td>
-                    <td>{{ $post['user']['first_name'] . $post['user']['last_name'] }}</td>
-                    <td><div class="txt-content">{{ $post['content'] }}</div></td>
-                    <td>{{ $post['post_time'] }}</td>
+                    <th scope="row">{{ $comment['comment_id'] }}</th>
+                    <td>{{ $comment['user']['first_name'] . $comment['user']['last_name'] }}</td>
+                    <td>{{ $comment['post']['title'] }}</td>
+                    <td> <div class="txt-content">{{ $comment['comment'] }}</div></td>
+                    <td>{{ $comment['comment_time'] }}</td>
+                    @if( $comment['status'] == '1')
+                        <td>
+                            <a class="btn btn-secondary btn-sm"  role="button" aria-pressed="false">Actived</a>
+                        </td>
+                    @else
+                        <td>
+                            <a class="btn btn-info btn-sm active btn_active" data-comment_id="{{ $comment['comment_id'] }}" role="button" aria-pressed="true">Active</a>
+                        </td>
+                    @endif
                     <td>
-                        <a href="{{ route('update.post.form', ['id'=>$post['post_id']]) }}" class="btn btn-info btn-sm active"  role="button" aria-pressed="true">Update</a>
-                        <a href="{{ route('delete.post', ['id'=>$post['post_id']]) }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete</a>
+                        <a href="#">Link</a>
                     </td>
                 </tr>
             @endforeach
@@ -87,8 +96,8 @@
     </div>
 </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>
 
 </body>

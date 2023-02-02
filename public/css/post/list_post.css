@@ -12,7 +12,6 @@ body {
     width: 15%;
     height: 100%;
     background-color: rgb(29, 29, 29);
-
 }
 
 .menu-items {
@@ -47,7 +46,6 @@ body {
     height: 80px;
     width: 100%;
     background-color: darksalmon;
-;
     color: white;
     display: flex;
     flex-direction: row;

@@ -15,7 +15,7 @@
         <li class="menu-item"><a class="menu-item-link" href="{{ route('profile.admin') }}">Profile</a></li>
         <li class="menu-item"><a class="menu-item-link" href="{{ route('list.category') }}">Categories</a></li>
         <li class="menu-item" style="background-color: darksalmon"><a class="menu-item-link" href="{{ route('list.post') }}">Posts</a></li>
-        <li class="menu-item"><a class="menu-item-link" href="#">Comment</a></li>
+        <li class="menu-item"><a class="menu-item-link" href="{{ route('list.comment.admin') }}">Comment</a></li>
         <li class="menu-item"><a class="menu-item-link" href="{{ route('logout') }}">Logout</a></li>
     </ul>
 </div>
@@ -57,6 +57,9 @@
                         <label for="exampleFormControlTextarea3">Content</label>
                         <textarea class="form-control" id="exampleFormControlTextarea3" rows="3" name="content"></textarea>
                     </div>
+                    @if ($errors->has('content'))
+                        <p class="text-danger">{{ $errors->first('content') }}</p>
+                    @endif
                 </div>
 
                 <div class="form-outline">
@@ -68,7 +71,7 @@
                 <div class="form-outline ">
                     <label class="form-label" for="customFile">Category</label>
                     <br>
-                    <select class="form-select form-select-sm" name="category_id" aria-label=".form-select-sm example">
+                    <select class="form-select form-select-lg" name="category_id" aria-label=".form-select-sm example">
                         @foreach($categories as $category)
                             <option value="{{ $category->category_id}}">{{ $category->name }}</option>
                         @endforeach

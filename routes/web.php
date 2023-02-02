@@ -23,9 +23,9 @@ Route::get('/',function (){
     return view('auth.user.login');
 });
 Route::get('logout',[UserController::class, 'logout'])->name('logout');
-
+Route::get('home', [HomeController::class, 'showHomeUser'])->name('home.user');
 Route::prefix('user')->middleware('auth')->group(function(){
-    Route::get('home', [HomeController::class, 'showHomeUser'])->name('home.user');
+
     Route::get('posts/{category_id}', [HomeController::class, 'showListPostsByCategoryID'])->name('list.posts');
     Route::post('posts/{category_id}',);
     Route::get('profile', [UserController::class, 'showProfile'])->name('profile.user');
@@ -77,6 +77,9 @@ Route::prefix('admin')->middleware('auth')->group(function(){
         Route::get('update/{id}', [PostController::class, 'showUpdatePostForm'])->name('update.post.form');
         Route::post('update', [PostController::class, 'updatePost'])->name('update.post');
         Route::get('delete/{id}', [PostController::class, 'deletePost'])->name('delete.post');
+    });
+    Route::prefix('comment')->group(function(){
+        Route::get('list', [CommentController::class, 'getListCommentForAdmin'])->name('list.comment.admin');
     });
 });
 

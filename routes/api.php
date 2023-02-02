@@ -23,4 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('comment')->group(function(){
     Route::get('list_comment/{id}', [CommentController::class, 'getListComment'])->name('list.comment');
     Route::post('add', [CommentController::class, 'addComment'])->name('add.comment');
+    Route::post('active', [CommentController::class, 'activeComment'])->name('active.comment');
 });

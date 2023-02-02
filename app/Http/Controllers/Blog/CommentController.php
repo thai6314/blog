@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\Post;
 use App\Models\User;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Client\Response;
@@ -78,4 +79,30 @@ class CommentController extends Controller
         ]);
     }
 
+    public function getListCommentForAdmin(){
+        $comments = Comment::all();
+        $commetsInfo = array();
+        foreach ($comments as $comment){
+            $post = Post::where('post_id', $comment->post_id)->first();
+            $user = User::where('user_id', $comment->user_id)->first();
+            array_push($commetsInfo, [
+                'comment_id'=>$comment->comment_id,
+                'comment'=>$comment->comment,
+                'status'=>$comment->status,
+                'comment_time'=>$comment->created_at,
+                'user'=>$user,
+                'post'=>$post,
+
+            ]);
+        }
+        return view('post.list_comment', ['comments'=>$commetsInfo]);
+    }
+
+    public function activeComment(Request $request){
+        $comment_id = $request['comment_id'];
+        Comment::where('comment_id', $comment_id)->update(['status'=> 1]);
+        return \response()->json([
+            'status'=>200,
+        ]);
+    }
 }

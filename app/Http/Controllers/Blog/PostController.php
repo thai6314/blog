@@ -37,7 +37,7 @@ class PostController extends Controller
     public function addPost(Request $request){
         $validated = $request->validate([
             'title' => 'required|max:200',
-            'content'=> 'required|max:200',
+            'content'=> 'required',
         ]);
         $postNew = [
             'title'=>$validated['title'],
@@ -56,7 +56,7 @@ class PostController extends Controller
     public function updatePost(Request $request){
         $validated = $request->validate([
             'title' => 'required|max:200',
-            'content'=> 'required|max:200',
+            'content'=> 'required',
         ]);
         $postUpdate = [
             'title'=>$validated['title'],

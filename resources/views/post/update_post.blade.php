@@ -15,7 +15,7 @@
         <li class="menu-item"><a class="menu-item-link" href="{{ route('profile.admin') }}">Profile</a></li>
         <li class="menu-item"><a class="menu-item-link" href="{{ route('list.category') }}">Categories</a></li>
         <li class="menu-item" style="background-color: darksalmon"><a class="menu-item-link" href="{{ route('list.post') }}">Posts</a></li>
-        <li class="menu-item"><a class="menu-item-link" href="#">Comment</a></li>
+        <li class="menu-item"><a class="menu-item-link" href="{{ route('list.comment.admin') }}">Comment</a></li>
         <li class="menu-item"><a class="menu-item-link" href="{{ route('logout') }}">Logout</a></li>
     </ul>
 </div>

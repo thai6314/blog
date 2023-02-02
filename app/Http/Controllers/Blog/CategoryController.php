@@ -27,8 +27,9 @@ class CategoryController extends Controller
         return view('category.update_category',['category'=>$category]);
     }
     public function updateCategory(Request $request){
+
         $validated = $request->validate([
-            'name' => 'required|unique:category|max:100',
+            'name' => 'required|max:100',
         ]);
         Category::where('category_id', $request['category_id'])->update($validated);
         return redirect()->route('list.category')->with(['message'=>'Update category success']);
