@@ -15,6 +15,7 @@
         <li class="menu-item" style="background-color: darksalmon"><a href="{{ route('profile.admin') }}">Profile</a></li>
         <li class="menu-item"><a href="{{ route('list.category') }}">Categories</a></li>
         <li class="menu-item"><a href="{{ route('list.post') }}">Posts</a></li>
+        <li class="menu-item"><a class="menu-item-link" href="{{ route('list.user') }}">Users</a></li>
         <li class="menu-item"><a href="{{ route('list.comment.admin') }}">Comment</a></li>
         <li class="menu-item"><a href="{{ route('logout') }}">Logout</a></li>
     </ul>
@@ -41,8 +42,8 @@
     </div>
     <div class="content" style="margin: 30px 0px 0px 30px">
         <div class="row">
-            <div class="col-3"></div>
-            <form class="col-6 border rounded" method="post" action="{{ route('edit.profile') }}">
+            <div class="col-4"></div>
+            <form class="col-5 border rounded" method="post" action="{{ route('edit.profile') }}">
                 @csrf
                 <h2 style="color: darksalmon">Edit profile</h2>
                 <div class="form-outline">

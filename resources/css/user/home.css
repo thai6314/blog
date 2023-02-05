@@ -3,7 +3,6 @@ body{
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 100vh;
     margin: auto;
     border: solid 1px coral;
 }
@@ -26,13 +25,29 @@ body{
     margin: auto;
     flex: 1;
 }
+.dropdown{
+    position: relative;
+    height: 50px;
+    display: inline-block;
+}
+.dropdown:hover{
+    color: blue;
+}
+.dropdown:hover .nav-item_dropdown{
+    display: block;
+}
+.nav-item_dropdown{
+    position: absolute;
+    top: 40px;
+    right: 100px;
+    display: none;
+}
 .nav-item a {
+    margin-left: 65%;
     text-decoration: none;
-    margin-left: 80%;
 }
 .menu-items{
     margin-top: 30px;
-    margin-left: 60px;
     color: black;
 }
 .menu-item{
@@ -41,15 +56,12 @@ body{
 }
 .content{
     margin-top: 20px;
-    border: solid 1px coral;
-
 }
 .page-title{
-    margin: 30px 0 0 70px;
+    margin-left: 10px;
 }
 .group-posts{
     width: 100%;
-    height: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -57,21 +69,17 @@ body{
 .group-post{
     display: flex;
     justify-content: space-around;
-    width: 45%;
-    height: 200px;
+    width: 48%;
     border: solid 1px coral;
     margin-bottom: 50px;
-
 }
 .group-post_image{
-    width: 150px;
+    width: 60%;
     height: 100%;
-
 }
 .image{
-    width: 150px;
+    width: 100%;
     height: 100%;
-    border: solid 1px coral;
 }
 .txt-title{
     font-weight: bold;

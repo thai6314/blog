@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
@@ -101,17 +102,19 @@ class UserController extends Controller
         return redirect()->route('login.user.form')->with(['message'=>'register success']);
     }
     public function showProfile(){
+        $categories = Category::all();
         if(Auth::user()->role == self::ROLE['admin']) {
-            return view('admin.profile');
+            return view('admin.profile',);
         } else {
-            return view('user.profile');
+            return view('user.profile', ['categories'=>$categories]);
         }
     }
     public function showEditForm(){
+        $categories = Category::all();
         if(Auth::user()->role == self::ROLE['admin']) {
             return view('admin.edit');
         } else {
-            return view('user.edit_profile');
+            return view('user.edit_profile',['categories'=>$categories]);
         }
     }
     public function editProfile(ProfileRequest $request){

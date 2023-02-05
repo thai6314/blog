@@ -1,17 +1,17 @@
-
-
 body {
     display: flex;
     justify-content: space-around;
     font-size: 20px;
-    height: 100vh;
 }
 
 .menu {
     padding-top: 80px;
     width: 15%;
-    height: 100%;
     background-color: rgb(29, 29, 29);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
 }
 
 .menu-items {
@@ -39,7 +39,7 @@ body {
 .nav-content {
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 100%;
 }
 
 .nav {
@@ -60,7 +60,7 @@ body {
 
 .content {
     margin-top: 30px;
-    height: 50%;
+    margin-left: 15%;
 }
 
 h2 {

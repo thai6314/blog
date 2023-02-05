@@ -15,6 +15,7 @@
         <li class="menu-item" style="background-color: darksalmon"><a href="{{ route('profile.admin') }}">Profile</a></li>
         <li class="menu-item"><a href="{{ route('list.category') }}">Categories</a></li>
         <li class="menu-item"><a href="{{ route('list.post') }}">Posts</a></li>
+        <li class="menu-item"><a class="menu-item-link" href="{{ route('list.user') }}">Users</a></li>
         <li class="menu-item"><a href="{{ route('list.comment.admin') }}">Comment</a></li>
         <li class="menu-item"><a href="{{ route('logout') }}">Logout</a></li>
     </ul>
@@ -41,8 +42,8 @@
         </div>
         <div class="content">
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-6 border rounded">
+                <div class="col-5"></div>
+                <div class="col-4 border rounded">
                     <h2>Profile</h2>
                     <div class="row mt-2"style="margin-top: 30px; width: 100%">
                         <div class="col-3 border-right" >
@@ -60,7 +61,6 @@
                             <span>{{ Auth::user()->first_name }} </span>
                         </div>
                     </div>
-                    <br>
                     <div class="row mt-2">
                         <div class="col-3 border-right">
                             <label class="form-label">Last name</label>

@@ -17,6 +17,7 @@
         <li class="menu-item"><a class="menu-item-link" href="{{ route('profile.admin') }}">Profile</a></li>
         <li class="menu-item"><a class="menu-item-link" href="{{ route('list.category') }}">Categories</a></li>
         <li class="menu-item"><a class="menu-item-link" href="{{ route('list.post') }}">Posts</a></li>
+        <li class="menu-item"><a class="menu-item-link" href="{{ route('list.user') }}">Users</a></li>
         <li class="menu-item"  style="background-color: darksalmon"><a class="menu-item-link" href="{{ route('list.comment.admin') }}">Comment</a></li>
         <li class="menu-item"><a class="menu-item-link" href="{{ route('logout') }}">Logout</a></li>
     </ul>
@@ -61,9 +62,9 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">User comment</th>
+                <th scope="col">User</th>
                 <th scope="col">Post title</th>
-                <th scope="col">Content comment</th>
+                <th scope="col">Comment</th>
                 <th scope="col">Comment time</th>
                 <th scope="col">Status</th>
                 <th scope="col">Detail</th>

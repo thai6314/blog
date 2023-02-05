@@ -1,30 +1,30 @@
-<footer class="text-center d-flex flex-column fixed-bottom" >
+<footer class="text-center d-flex flex-column" >
     <section class=" border-bottom" >
         <div>
-            <a href="" class="me-4 link-secondary">
+            <a href="" class="link-secondary">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="" class="me-4 link-secondary">
+            <a href="" class="link-secondary">
                 <i class="fab fa-twitter"></i>
             </a>
-            <a href="" class="me-4 link-secondary">
+            <a href="" class="link-secondary">
                 <i class="fab fa-google"></i>
             </a>
-            <a href="" class="me-4 link-secondary">
+            <a href="" class="link-secondary">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="" class="me-4 link-secondary">
+            <a href="" class="link-secondary">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="" class="me-4 link-secondary">
+            <a href="" class="link-secondary">
                 <i class="fab fa-github"></i>
             </a>
         </div>
     </section>
     <section class="">
-        <div class="container text-center text-md-start mt-5">
+        <div class="container text-center text-md-start">
             <div class="row mt-3">
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto">
                     <h6 class="text-uppercase fw-bold mb-4">
                         <i class="fas fa-gem me-3 text-secondary"></i>Company
                     </h6>
@@ -32,8 +32,8 @@
                         VTI
                     </p>
                 </div>
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                    <h6 class="text-uppercase fw-bold">
                         Technology
                     </h6>
                     <p>
@@ -44,8 +44,8 @@
                     </p>
                 </div>
 
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+                    <h6 class="text-uppercase fw-bold">
                         Address
                     </h6>
                     <p>

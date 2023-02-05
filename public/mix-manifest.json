@@ -6,5 +6,6 @@
     "/css/category/category.css": "/css/category/category.css",
     "/css/admin/profile.css": "/css/admin/profile.css",
     "/css/post/list_post.css": "/css/post/list_post.css",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/css/post/detail.css": "/css/post/detail.css"
 }

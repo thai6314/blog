@@ -3,15 +3,16 @@ body {
     display: flex;
     justify-content: space-around;
     font-size: 20px;
-    height: 100vh;
 }
 
 .menu {
     padding-top: 80px;
     width: 15%;
     background-color: rgb(29, 29, 29);
-    height: 100%;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
 }
 
 .menu-items {
@@ -39,14 +40,12 @@ a {
 .nav-content {
     display: flex;
     flex-direction: column;
-    width: 85%;
 }
 
 .nav {
     height: 80px;
     width: 100%;
     background-color: darksalmon;
-    ;
     color: white;
     display: flex;
     flex-direction: row;
@@ -60,9 +59,8 @@ a {
 }
 
 .content {
-    margin: 30px auto auto 15%;
+    margin-top: 30px;
 }
-
 h2 {
     color: darksalmon;
 }
